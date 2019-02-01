@@ -64,7 +64,7 @@ class App extends Component {
                     <td>{board.description}</td>
                     <td>{board.author}</td>
                     <td>{board.image}</td>
-                    <td><img src={board.imageurl} /></td>
+                    <td><img src={board.imageurl} alt="" /></td>
                   </tr>
                 )}
               </tbody>

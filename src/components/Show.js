@@ -76,7 +76,7 @@ class Show extends Component {
 
               <dt>Image:</dt>
               <dd>{this.state.board.image}</dd>
-              <dd><img className="board_img" src={this.state.board.imageurl} /></dd>
+              <dd><img className="board_img" alt="" src={this.state.board.imageurl} /></dd>
             </dl>
             <Link to={`/edit/${this.state.key}`} className="btn btn-success">Edit</Link>&nbsp;
             <button onClick={this.delete.bind(this, this.state.key)} className="btn btn-danger">Delete</button>

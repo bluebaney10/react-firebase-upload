@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import firebase from '../config/Firebase';
 import { Link } from 'react-router-dom';
 import FileUploader from 'react-firebase-file-uploader'
@@ -82,10 +81,10 @@ class Create extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { title, description, author,avatarURL } = this.state;
+    const { title, description, author} = this.state;
 
-    console.log('this.avatarURL:'+this.state.avatarURL);
-    console.log('this.avatarURL:'+this.state.avatarName);
+    //console.log('this.avatarURL:'+this.state.avatarURL);
+   // console.log('this.avatarURL:'+this.state.avatarName);
     
   
     this.ref.add({

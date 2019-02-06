@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import firebase from './config/Firebase';
+import firebase from '../config/Firebase';
 
-class App extends Component {
+class View extends Component {
   constructor(props) {
     super(props);
     this.ref = firebase.firestore().collection('boards');
@@ -75,4 +75,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default View;

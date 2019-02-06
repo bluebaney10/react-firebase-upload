@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import './cards.css';
-import '../node_modules/bulma/css/bulma.css'
-
-
 import firebase from './config/Firebase';
+import {Link} from 'react-router-dom'
+import 'bulma/css/bulma.css'
+import './css/AppNews.css'
+
+
 
 class App extends Component {
   constructor(props) {
@@ -40,102 +40,46 @@ class App extends Component {
   }
 
   render() {
+   
     return (
-        <div class="container">
-         <div class="section">
-         <div class="row columns">
-         <div class="column is-one-third">
-                    <div class="card large">
-                        <div class="card-image">
-                            <figure class="image">
-                                <img src="https://images.unsplash.com/photo-1475778057357-d35f37fa89dd?dpr=1&auto=compress,format&fit=crop&w=1920&h=&q=80&cs=tinysrgb&crop=" alt="Image" />
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-left">
-                                    <figure class="image is-96x96">
-                                        <img src="https://i.imgsafe.org/a4/a4bb9acc5e.jpeg" alt="Image" />
-                                    </figure>
-                                </div>
-                                <div class="media-content">
-                                    <p class="title is-4 no-padding">Okinami</p>
-                                    <p><span class="title is-6"><a href="http://twitter.com/#">@twitterid</a></span></p>
-                                    <p class="subtitle is-6">Lead Developer</p>
-                                </div>
-                            </div>
-                            <div class="content">
-                                The Beast stumbled in the dark for it could no longer see the path. It started to fracture and weaken, trying to reshape itself into the form of metal. Even the witches would no longer lay eyes upon it, for it had become hideous and twisted.
-                                <div class="background-icon"><span class="icon-twitter"></span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+       <div>
+        	
+      
+        <section class="container">
 
-                <div class="column is-one-third">
-                    <div class="card large">
-                        <div class="card-image">
-                            <figure class="image">
-                                <img src="https://source.unsplash.com/uzDLtlPY8kQ" alt="Image" />
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-left">
-                                    <figure class="image is-96x96">
-                                        <img src="https://cdn.discordapp.com/avatars/244932903530659841/0c924a19fcf1b5c59bc9dc1b58b61bb0.jpg?size=1024" alt="Image" />
-                                    </figure>
-                                </div>
-                                <div class="media-content">
-                                    <p class="title is-4 no-padding">McSocks</p>
-                                    <p><span class="title is-6"><a href="http://twitter.com/#">@twitterid</a></span></p>
-                                    <p class="subtitle is-6">Developer</p>
-                                </div>
-                            </div>
-                            <div class="content">
-                                The soul of the Beast seemed lost forever. Then, by the full moon's light, a child was born; child with the unbridled soul of the Beast that would make all others pale in comparison.
-                                <div class="background-icon"><span class="icon-facebook"></span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+       
+        <div class="columns is-multiline AppNews-box" >
+          
+        {this.state.boards.map(board =>
+          <div class="column is-4 " >
 
-
-                <div class="column is-one-third">
-                    <div class="card large">
-                        <div class="card-image">
-                            <figure class="image">
-                                <img src="https://source.unsplash.com/pe_R74hldW4" alt="Image" />
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-left">
-                                    <figure class="image is-96x96">
-                                        <img src="https://i.imgsafe.org/a5/a5e978ce20.jpeg" alt="Image" />
-                                    </figure>
-                                </div>
-                                <div class="media-content">
-                                    <p class="title is-4 no-padding">The Conceptionist</p>
-                                    <p><span class="title is-6"><a href="http://twitter.com/#">@twitterid</a></span></p>
-                                    <p class="subtitle is-6">Developer</p>
-                                </div>
-                            </div>
-                            <div class="content">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo, corporis totam! Labore reprehenderit beatae magnam animi!
-                                <div class="background-icon"><span class="icon-barcode"></span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-         </div>
          
-         </div>
-      </div>
+            <div class="card is-shady card-box" key={board.key}>
+              <div class="card-image">
+                <figure class="image">
+                  <img src={board.imageurl} alt="Placeholder" class="modal-button" data-target="modal-image2" />
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="content">
+                  <h4>{board.title}</h4>
+                  <p>{board.description}</p>
+                  <Link to={`/show/${board.key}`}>
+                  <span class="button is-link modal-button" data-target="modal-image2">More Detail</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+              
+          </div>
+           )}
+         
+          </div>
+        
+          </section>
+
+          </div>
+
     )
   }
 }
